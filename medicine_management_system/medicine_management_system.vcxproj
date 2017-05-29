@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="medicine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="implementation_of_class_medicine.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{E9AB31CF-2D84-41F5-8E40-9B2CF594D3D9}</ProjectGuid>
