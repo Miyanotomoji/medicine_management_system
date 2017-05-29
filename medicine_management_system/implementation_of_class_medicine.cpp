@@ -44,7 +44,7 @@ void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
 	accessibility = true;
 }
 
-void Medicine::show(int mode = 0)
+void Medicine::show(int mode)
 {
 	if (mode == 0)
 	{
@@ -56,7 +56,7 @@ void Medicine::show(int mode = 0)
 		cout << setw(10) << number << setw(10) << name << setw(10) << amount << setw(10) << price << endl;
 	}
 
-	// 如果mode为0，输出题头，否则不输出题头
+	// 如果mode为SHOW_TITLES，输出题头，否则不输出题头
 }
 
 void Medicine::swap(Medicine* a, Medicine* b)
@@ -94,6 +94,6 @@ void Medicine::showAllMedicine()
 			break;
 		}
 		cout << setw(10) << "NO" << setw(10) << "NAME" << setw(10) << "AMOUNT" << setw(10) << "PRICE" << endl;
-		(*total_index)->show(1);
+		(*total_index)->show(NO_SHOW_TITLES);
 	}
 }

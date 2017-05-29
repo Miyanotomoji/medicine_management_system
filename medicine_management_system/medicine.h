@@ -1,6 +1,8 @@
 // header file of class Medicine
 #ifndef MEDICINE_H
 #define MEDICINE_H
+#define SHOW_TITLES 0
+#define NO_SHOW_TITLES 1
 #pragma once
 
 #include<string>
@@ -26,7 +28,7 @@ public:
 	Medicine(int t_number, string t_name, int amount, double price);
 	Medicine(Medicine & t_medicine);
 	void add(int t_number, string t_name, int t_amount, double t_price);
-	void show(int mode = 0);
+	void show(int mode);
 	void Delete();
 	static void showAllMedicine();
 	static void swap(Medicine* a, Medicine* b);
