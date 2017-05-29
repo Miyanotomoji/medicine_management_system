@@ -6,6 +6,7 @@
 #pragma once
 
 #include<string>
+#include<iostream>
 
 const int MAX_RECORD = 1000;
 
