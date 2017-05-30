@@ -1,11 +1,13 @@
 // header file of class Medicine
 #ifndef MEDICINE_H
 #define MEDICINE_H
-#define SHOW_TITLES 0
-#define NO_SHOW_TITLES 1
 #pragma once
 
 #include<string>
+
+#define SHOW_TITLES 0
+#define NO_SHOW_TITLES 1
+#define ONLY_SHOW_TITLES 3
 
 const int MAX_RECORD = 1000;
 
@@ -24,7 +26,7 @@ private:
 	static Medicine **total_index;
 
 public:
-	Medicine() {};
+	Medicine() {}
 	Medicine(int t_number, string t_name, int amount, double price);
 	Medicine(Medicine & t_medicine);
 	void add(int t_number, string t_name, int t_amount, double t_price);

@@ -46,22 +46,28 @@ void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
 
 void Medicine::show(int mode)
 {
-	if (mode == SHOW_TITLES)
+	switch (mode)
 	{
+	case SHOW_TITLES:
 		cout << setw(10) << "NO" << setw(10) << "NAME" << setw(10) << "AMOUNT" << setw(10) << "PRICE" << endl;
+		cout << "----------------------------------------" << endl;
 		cout << setw(10) << number << setw(10) << name << setw(10) << amount << setw(10) << price << endl;
-	}
-	else
-	{
-		cout << setw(10) << number << setw(10) << name << setw(10) << amount << setw(10) << price << endl;
-	}
+		break;
 
-	// 如果mode为SHOW_TITLES，输出题头，否则不输出题头
+	case NO_SHOW_TITLES:
+		cout << setw(10) << number << setw(10) << name << setw(10) << amount << setw(10) << price << endl;
+		break;
+
+	case ONLY_SHOW_TITLES:
+		cout << setw(10) << "NO" << setw(10) << "NAME" << setw(10) << "AMOUNT" << setw(10) << "PRICE" << endl;
+		cout << "----------------------------------------" << endl;
+		break;
+	}
 }
 
 void Medicine::swap(Medicine* a, Medicine* b)
 {
-	Medicine * p = NULL;
+	Medicine* p = NULL;
 	a = p;
 	p = b;
 	b = a;
