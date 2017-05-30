@@ -44,7 +44,7 @@ void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
 	accessibility = true;
 }
 
-void Medicine::show(int mode)
+void Medicine::show(int mode = NO_SHOW_TITLES)
 {
 	if (mode == SHOW_TITLES)
 	{
