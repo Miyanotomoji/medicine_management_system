@@ -18,36 +18,9 @@
     <ClInclude Include="medicine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\All User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\ArrayOfPersons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\function.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\Person.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="implementation_of_class_medicine.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\All User.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\ArrayOfPersons.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\main.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\Person.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
