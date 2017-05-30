@@ -19,9 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\All User.h" />
+    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\ArrayOfPersons.h" />
+    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\function.h" />
+    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\Menu.h" />
+    <ClInclude Include="E:\Programs\Medicine Mmanagement System1.0\Person.h" />
     <ClInclude Include="medicine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\All User.cpp" />
+    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\ArrayOfPersons.cpp" />
+    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\main.cpp" />
+    <ClCompile Include="E:\Programs\Medicine Mmanagement System1.0\Person.cpp" />
     <ClCompile Include="implementation_of_class_medicine.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
