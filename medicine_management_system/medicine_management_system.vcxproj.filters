@@ -26,9 +26,6 @@
     <ClCompile Include="implementation_of_class_medicine.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="implementation_of_class_Users.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>

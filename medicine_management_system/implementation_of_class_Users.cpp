@@ -9,6 +9,9 @@ using std::string;
 using std::setw;
 
 int User::count = 0;
+int User::count_admin = 0;
+int User::count_manager = 0;
+int User::count_warehouse = 0;
 bool User::adminExisted = false;
 User **User::total_index = new User *[MAX_RECORD];
 
@@ -19,12 +22,27 @@ User::User(string t_account, string t_password, int userType)
 	/*if (userType == IS_ADMIN && adminExisted)
 	{
 		cout << "Administrator already existed, permission denied." << endl;
-	}*/					// how to control authority? Maybe I need to create a function later for main.cpp
+	}*/										// how to control authority? Maybe I need to create a function later for main.cpp
 	authority = userType;
 
 	if (authority == IS_ADMIN)				// create an administrator
 	{
 		adminExisted == true;
+	}
+
+	switch (authority)
+	{
+	case IS_ADMIN:
+		count_admin++;
+		break;
+		
+	case IS_MANAGER:
+		count_manager++;
+		break;
+
+	case IS_WAREHOUSE:
+		count_warehouse++;
+		break;
 	}
 
 	accessibility = true;

@@ -36,4 +36,6 @@ public:
 	static void swap(Medicine* a, Medicine* b);
 };
 
+
+
 #endif

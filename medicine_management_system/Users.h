@@ -25,6 +25,9 @@ private:
 	bool accessibility;
 	int index;
 	static int count;
+	static int count_admin;
+	static int count_manager;
+	static int count_warehouse;
 	static bool adminExisted;
 	static User **total_index;
 
