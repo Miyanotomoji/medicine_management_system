@@ -1,10 +1,9 @@
-#include"function.h"
-#include"ArrayOfPersons.h"
 #include<iostream>
+#include"medicine.h"
+
 using namespace std;
-ArrayOfPersons A;
+
 int main()
 {
-    Function_Main_Menu();
-    return 0;
+	return 0;
 }
