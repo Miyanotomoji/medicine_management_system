@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Users.h" />
     <ClInclude Include="medicine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="implementation_of_class_medicine.cpp" />
+    <ClCompile Include="implementation_of_class_Users.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
