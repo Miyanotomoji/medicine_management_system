@@ -5,6 +5,10 @@
 #include"Array.h"
 #include"Users.h"
 
+#define CUSTOMER 1
+#define STAFF 2
+#define VENDOR 3
+
 using std::string;
 
 const int maxn=10000;
@@ -28,8 +32,8 @@ private:
     string name;
     int number;
     int age;
+	int identity;
     bool accessiblity;
-    int authority;
 };
 
 #endif // PERSONNEL_H

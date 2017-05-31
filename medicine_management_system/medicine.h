@@ -16,6 +16,12 @@ using std::string;
 
 class Medicine
 {
+public:
+	Medicine() {}
+	Medicine(int t_number, string t_name, int amount, double price);
+	Medicine(Medicine & t_medicine);
+	friend class ArrayOfMedicine;
+
 private:
 	string name;
 	int number;
@@ -23,21 +29,6 @@ private:
 	double price;
 	bool accessibility;
 	int index;
-	static int count;
-	static Medicine **total_index;
-
-public:
-	Medicine() {}
-	Medicine(int t_number, string t_name, int amount, double price);
-	Medicine(Medicine & t_medicine);
-	//void add(int t_number, string t_name, int t_amount, double t_price);
-	//void show(int mode);
-	//void Delete();
-	//static void showAllMedicine();
-	//static void swap(Medicine* a, Medicine* b);
-	friend class ArrayOfMedicine;
 };
-
-
 
 #endif

@@ -2,16 +2,15 @@
 #define ARRAY_H
 #pragma once
 
-#define USER 1
-#define MEDICINE 2
-#define PERSONNEL 3
-
-
-
 #include<string>
 #include"Users.h"
 #include"Personnel.h"
 #include"medicine.h"
+
+
+#define USER 1
+#define MEDICINE 2
+#define PERSONNEL 3
 
 using std::string;
 
@@ -34,10 +33,11 @@ public:
 	ArrayOfUser(int n);
 	ArrayOfUser(ArrayOfUser &);
 	~ArrayOfUser();
-	void Add(int t_authority, string t_account, string t_password);
+	void Add(int t_authority, int t_number, string t_account, string t_password);
 	void Show(int index, int mode);
 	void Delete(int index);
 	void ShowAllUser();
+	int FindIndex(int t_number);
 	int calNumberOfUser();
 	int checkAuthority();
 
@@ -52,17 +52,18 @@ class ArrayOfPersonnel :public Array
 public:
 	ArrayOfPersonnel();
 	ArrayOfPersonnel(int n);//构造函数
+	ArrayOfPersonnel(ArrayOfPersonnel &);
 	~ArrayOfPersonnel();//析构函数
 	void Add(int t_number, string t_name, int t_age, int t_authortiy);//添加
 	void Show(int index);//查询
 	void Delete(int index);//删除
 	void ShowAllPersonnel();//输出所有用户的信息
-	int Find(int t_number);//按照number查找用户在动态数组类中的下表
+	int FindIndex(int t_number);//按照number查找用户在动态数组类中的下表
 	friend class Personnel;
 private:
 	Personnel* personnel;//指向动态数组首地址
 	int record_index;
-	int num_of_medicine;
+	int num_of_personnel;
 };
 
 class ArrayOfMedicine :public Array
@@ -76,6 +77,7 @@ public:
 	void Show(int index, int mode);
 	void Delete(int index);
 	void ShowAllMedicine();
+	int FindIndex(int t_number);
 	int calNumberOfMedicine();
 
 private:

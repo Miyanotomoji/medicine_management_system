@@ -28,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
-    <ClCompile Include="ArrayOfPersonnel.cpp" />
     <ClCompile Include="implementation_of_class_medicine.cpp" />
     <ClCompile Include="implementation_of_class_Users.cpp" />
     <ClCompile Include="main.cpp" />

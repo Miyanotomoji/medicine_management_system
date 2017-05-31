@@ -50,8 +50,5 @@
     <ClCompile Include="Array.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayOfPersonnel.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

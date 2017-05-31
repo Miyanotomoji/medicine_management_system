@@ -23,27 +23,15 @@ public:
 	User() {}
 	User(string t_account, string t_password, int userType);
 	User(User & t_user);
-	void create(string t_account, string t_password, int userType);
-	void Delete();
-	void show(int mode);
-	int checkAuthority();
-	static void showAllUsers();
-	static bool checkAdmin();
-	static void swap(User* a, User* b);
 	friend class ArrayOfUser;
 private:
 	int authority;
+	int number;
 	string account;
 	string password;
 	int index;
 	bool accessibility;
 	bool is_login;
-	static int count_all;
-	static int count_admin;
-	static int count_manager;
-	static int count_warehouse;
-	static bool adminExisted;
-	//static User **total_index;
 };
 
 

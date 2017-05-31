@@ -12,6 +12,7 @@ int Array::numArrayOfMedicine = 0;
 int Array::numArrayOfPersonnel = 0;
 int Array::numArrayOfUser = 0;
 
+// BASE CLASS Array
 Array::Array(Array & t_array)
 {
 	numArrayOfMedicine = t_array.numArrayOfMedicine;
@@ -35,7 +36,8 @@ void Array::modifyArray(int n, int type)
 		break;
 	}
 }
-
+/////////////////////////////////////////////////
+// DERIVED CLASS ArrayOfMedicine
 ArrayOfMedicine::ArrayOfMedicine()
 {
 	medicine = new Medicine[MAX_RECORD];
@@ -124,6 +126,17 @@ void ArrayOfMedicine::ShowAllMedicine()
 	}
 }
 
+int ArrayOfMedicine::FindIndex(int t_number)
+{
+	for (int i = 0; i < record_index; i++)
+	{
+		if (medicine[i].accessibility == true && medicine[i].number == t_number)
+		{
+			return medicine[i].index;
+		}
+	}
+}
+
 int ArrayOfMedicine::calNumberOfMedicine()
 {
 	for (int i = 0; i < record_index; i++)
@@ -136,7 +149,8 @@ int ArrayOfMedicine::calNumberOfMedicine()
 
 	return num_of_medicine;
 }
-
+///////////////////////////////////////////////////
+// DERIVED CLASS ArrayOfUser
 ArrayOfUser::ArrayOfUser()
 {
 	user = new User[MAX_RECORD];
@@ -171,7 +185,7 @@ ArrayOfUser::~ArrayOfUser()
 	modifyArray(-1, USER);
 }
 
-void ArrayOfUser::Add(int t_authority, string t_account, string t_password)
+void ArrayOfUser::Add(int t_authority, int t_number, string t_account, string t_password)
 {
 	if (record_index > 900)
 	{
@@ -179,6 +193,7 @@ void ArrayOfUser::Add(int t_authority, string t_account, string t_password)
 	}
 
 	user[record_index].authority = t_authority;
+	user[record_index].number = t_number;
 	user[record_index].account = t_account;
 	user[record_index].password = t_password;
 	user[record_index].accessibility = true;
@@ -223,6 +238,17 @@ void ArrayOfUser::ShowAllUser()
 	}
 }
 
+int ArrayOfUser::FindIndex(int t_number)
+{
+	for (int i = 0; i < record_index; i++)
+	{
+		if (user[i].accessibility == true && user[i].number == t_number)
+		{
+			return user[i].index;
+		}
+	}
+}
+
 int ArrayOfUser::calNumberOfUser()
 {
 	for (int i = 0; i < record_index; i++)
@@ -244,6 +270,38 @@ int ArrayOfUser::checkAuthority()
 		{
 			return user[i].authority;
 		}
+	}
+}
+
+/////////////////////////////////////////
+// DERIVED CLASS ArrayOfPersonnel
+ArrayOfPersonnel::ArrayOfPersonnel()
+{
+	personnel = new Personnel[MAX_RECORD];
+	record_index = 0;
+	num_of_personnel = 0;
+	modifyArray(1, PERSONNEL);
+}
+
+ArrayOfPersonnel::ArrayOfPersonnel(int n)
+{
+	personnel = new Personnel[n];
+	modifyArray(1, PERSONNEL);
+}
+
+ArrayOfPersonnel::ArrayOfPersonnel(ArrayOfPersonnel & array_of_personnel)
+{
+	// need to copy all the contents? or simply the header?
+	record_index = array_of_personnel.record_index;
+	personnel = new Personnel[MAX_RECORD];
+	for (int i = 0; i < record_index; i++)
+	{
+		personnel[i].number = array_of_personnel.personnel[i].number;
+		personnel[i].name = array_of_personnel.personnel[i].name;
+		personnel[i].age = array_of_personnel.personnel[i].age;
+		personnel[i].identity = array_of_personnel.personnel[i].identity;
+		personnel[i].accessiblity = array_of_personnel.personnel[i].accessiblity;
+		record_index++;
 	}
 }
 
