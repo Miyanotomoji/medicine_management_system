@@ -1,7 +1,9 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
-#include<bits/stdc++.h>
-using namespace std;
+#include<iostream>
+#include<ctime>
+using std::cout;
+using std::endl;
 
 string getTime()//获取当前系统时间
 {

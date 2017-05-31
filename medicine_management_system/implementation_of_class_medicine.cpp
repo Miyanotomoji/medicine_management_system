@@ -35,16 +35,16 @@ Medicine::Medicine(Medicine & t_medicine)
 	count++;
 }
 
-void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
+/*void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
 {
 	number = t_number;
 	name = t_name;
 	amount = t_amount;
 	price = t_price;
 	accessibility = true;
-}
+}*/
 
-void Medicine::show(int mode)
+/*void Medicine::show(int mode)
 {
 	switch (mode)
 	{
@@ -63,17 +63,17 @@ void Medicine::show(int mode)
 		cout << "----------------------------------------" << endl;
 		break;
 	}
-}
+}*/
 
-void Medicine::swap(Medicine* a, Medicine* b)
+/*void Medicine::swap(Medicine* a, Medicine* b)
 {
 	Medicine* p = NULL;
 	a = p;
 	p = b;
 	b = a;
-}
+}*/
 
-void Medicine::Delete()
+/*void Medicine::Delete()
 {
 	accessibility = false;
 	total_index[index] = NULL;
@@ -89,9 +89,9 @@ void Medicine::Delete()
 	}			// 保证total_index里面null都在后面，这样下面的count--才能正常工作
 				// 这一段亟待修改，这样做速度太慢了
 	count--;
-}
+}*/
 
-void Medicine::showAllMedicine()
+/*void Medicine::showAllMedicine()
 {
 	for (int i = 0; i < count; i++)
 	{
@@ -102,4 +102,4 @@ void Medicine::showAllMedicine()
 		cout << setw(10) << "NO" << setw(10) << "NAME" << setw(10) << "AMOUNT" << setw(10) << "PRICE" << endl;
 		(*total_index)->show(NO_SHOW_TITLES);
 	}
-}
+}*/

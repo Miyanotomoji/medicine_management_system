@@ -4,6 +4,7 @@
 #pragma once
 
 #include<string>
+#include"Array.h"
 
 #define SHOW_TITLES 0
 #define NO_SHOW_TITLES 1
@@ -29,11 +30,12 @@ public:
 	Medicine() {}
 	Medicine(int t_number, string t_name, int amount, double price);
 	Medicine(Medicine & t_medicine);
-	void add(int t_number, string t_name, int t_amount, double t_price);
+	/*void add(int t_number, string t_name, int t_amount, double t_price);
 	void show(int mode);
 	void Delete();
-	static void showAllMedicine();
-	static void swap(Medicine* a, Medicine* b);
+	static void showAllMedicine();*/
+	//static void swap(Medicine* a, Medicine* b);
+	friend class ArrayOfMedicine;
 };
 
 

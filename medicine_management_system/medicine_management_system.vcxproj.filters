@@ -21,19 +21,16 @@
     <ClInclude Include="Users.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="All User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayOfPersons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Person.h">
+    <ClInclude Include="Personnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,16 +41,16 @@
     <ClCompile Include="implementation_of_class_Users.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="All User.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrayOfPersons.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Person.cpp">
+    <ClCompile Include="Personnel.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayOfPersonnel.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
