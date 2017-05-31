@@ -19,6 +19,7 @@ class Array
 public:
 	Array() {}
 	Array(Array &);
+	~Array();
 	static void modifyArray(int n,int type);
 private:
 	static int numArrayOfPersonnel;
@@ -37,7 +38,7 @@ public:
 	void Delete(int index);//删除
 	void ShowAllPersonnel();//输出所有用户的信息
 	int Find(int t_number);//按照number查找用户在动态数组类中的下表
-	friend Personnel;
+	friend class Personnel;
 private:
 	Personnel* personnel;//指向动态数组首地址
 };
@@ -48,13 +49,16 @@ public:
 	ArrayOfMedicine();
 	ArrayOfMedicine(int n);
 	ArrayOfMedicine(ArrayOfMedicine & array_of_medicine);
+	~ArrayOfMedicine();
 	void Add(int t_number, string t_name, int t_amount, double t_price);
 	void Show(int mode);
-	void Delete();
+	void Delete(int index);
 	static void ShowAllMedicine();
+	int calNumberOfMedicine();
 private:
 	Medicine* medicine;
-	static int num_of_medicine;
+	int record_index;
+	int num_of_medicine;
 };
 
 

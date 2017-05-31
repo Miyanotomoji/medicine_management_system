@@ -10,8 +10,8 @@ using std::cout;
 using std::endl;
 using std::setw;
 
-int Medicine::count = 0;
-Medicine **Medicine::total_index = new Medicine *[MAX_RECORD];
+//int Medicine::count = 0;
+//Medicine **Medicine::total_index = new Medicine *[MAX_RECORD];
 
 Medicine::Medicine(int t_number, string t_name, int t_amount, double t_price)
 {
@@ -22,7 +22,7 @@ Medicine::Medicine(int t_number, string t_name, int t_amount, double t_price)
 	index = count;
 	accessibility = true;
 	total_index[index] = this;
-	count++;
+	//count++;
 }
 
 Medicine::Medicine(Medicine & t_medicine)
@@ -32,7 +32,7 @@ Medicine::Medicine(Medicine & t_medicine)
 	amount = t_medicine.amount;
 	price = t_medicine.price;
 	accessibility = t_medicine.accessibility;
-	count++;
+	//count++;
 }
 
 /*void Medicine::add(int t_number, string t_name, int t_amount, double t_price)
