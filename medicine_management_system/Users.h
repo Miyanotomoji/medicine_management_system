@@ -3,6 +3,7 @@
 #pragma once
 
 #include<string>
+#include"Array.h"
 
 #define IS_ADMIN 1
 #define IS_MANAGER 2
@@ -18,30 +19,31 @@ using std::string;
 
 class User
 {
-private:
-	int authority;
-	string account;
-	string password;
-	bool accessibility;
-	int index;
-	static int count;
-	static int count_admin;
-	static int count_manager;
-	static int count_warehouse;
-	static bool adminExisted;
-	static User **total_index;
-
 public:
 	User() {}
 	User(string t_account, string t_password, int userType);
 	User(User & t_user);
 	void create(string t_account, string t_password, int userType);
 	void Delete();
+	void show(int mode);
 	int checkAuthority();
 	static void showAllUsers();
-	void show(int mode);
 	static bool checkAdmin();
 	static void swap(User* a, User* b);
+	friend class ArrayOfUser;
+private:
+	int authority;
+	string account;
+	string password;
+	int index;
+	bool accessibility;
+	bool is_login;
+	static int count_all;
+	static int count_admin;
+	static int count_manager;
+	static int count_warehouse;
+	static bool adminExisted;
+	//static User **total_index;
 };
 
 

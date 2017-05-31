@@ -2,13 +2,14 @@
 #define ARRAY_H
 #pragma once
 
-#define MEDICINE 0
-#define PERSONNEL 1
+#define USER 1
+#define MEDICINE 2
+#define PERSONNEL 3
 
 
 
-#include<array>
 #include<string>
+#include"Users.h"
 #include"Personnel.h"
 #include"medicine.h"
 
@@ -19,13 +20,32 @@ class Array
 public:
 	Array() {}
 	Array(Array &);
-	~Array();
 	static void modifyArray(int n,int type);
 private:
+	static int numArrayOfUser;
 	static int numArrayOfPersonnel;
 	static int numArrayOfMedicine;
 };
 
+class ArrayOfUser :public Array
+{
+public:
+	ArrayOfUser();
+	ArrayOfUser(int n);
+	ArrayOfUser(ArrayOfUser &);
+	~ArrayOfUser();
+	void Add(int t_authority, string t_account, string t_password);
+	void Show(int index, int mode);
+	void Delete(int index);
+	void ShowAllUser();
+	int calNumberOfUser();
+	int checkAuthority();
+
+private:
+	User* user;
+	int record_index;
+	int num_of_user;
+};
 
 class ArrayOfPersonnel :public Array
 {
@@ -41,20 +61,23 @@ public:
 	friend class Personnel;
 private:
 	Personnel* personnel;//指向动态数组首地址
+	int record_index;
+	int num_of_medicine;
 };
 
 class ArrayOfMedicine :public Array
 {
 public:
 	ArrayOfMedicine();
-	ArrayOfMedicine(int n);
+	ArrayOfMedicine(int n);		// fixed amount of medicine in one warehouse
 	ArrayOfMedicine(ArrayOfMedicine & array_of_medicine);
 	~ArrayOfMedicine();
 	void Add(int t_number, string t_name, int t_amount, double t_price);
-	void Show(int mode);
+	void Show(int index, int mode);
 	void Delete(int index);
-	static void ShowAllMedicine();
+	void ShowAllMedicine();
 	int calNumberOfMedicine();
+
 private:
 	Medicine* medicine;
 	int record_index;

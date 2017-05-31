@@ -1,16 +1,12 @@
 #ifndef FUNCTION_H_INCLUDED
 #define FUNCTION_H_INCLUDED
-#include<bits/stdc++.h>
+#include<iostream>
 #include"Menu.h"
-#include"ArrayOfPersons.h"
+#include"Array.h"
 extern ArrayOfPersons A;//声明外部对象
+
 using namespace std;
-void Function_Person_Menu_1();//函数声明
-void Show_input();//函数声明
-void Delete_input();//函数声明
-void Add_input();//函数声明
-void Function_Main_Menu();//函数声明
-void Function_Medice_Manager_Menu();//函数声明
+
 void Function_Person_Menu()//人员管理菜单的功能实现
 {
     system("cls");
@@ -153,4 +149,7 @@ void Delete_input()//删除Person
     system("pause");
     Function_Person_Menu_1();//返回人员管理菜单的子菜单
 }
+
+bool checkAuthority()
+
 #endif // FUNCTION_H_INCLUDED
