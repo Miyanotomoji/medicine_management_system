@@ -33,7 +33,7 @@ private:
     int number;
     int age;
 	int identity;
-    bool accessiblity;
+    bool accessibility;
 };
 
 #endif // PERSONNEL_H

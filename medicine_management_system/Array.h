@@ -12,6 +12,11 @@
 #define MEDICINE 2
 #define PERSONNEL 3
 
+#define E_NUMBER 1
+#define E_AUTHORITY 2
+#define E_ACCOUNT 3
+#define NO_ERROR 4
+
 using std::string;
 
 class Array
@@ -19,6 +24,7 @@ class Array
 public:
 	Array() {}
 	Array(Array &);
+	bool catchError(int error_code);
 	static void modifyArray(int n,int type);
 private:
 	static int numArrayOfUser;
@@ -40,11 +46,13 @@ public:
 	int FindIndex(int t_number);
 	int calNumberOfUser();
 	int checkAuthority();
+	int checkFormat(int t_authority, int t_number, string t_account);
 
 private:
 	User* user;
 	int record_index;
 	int num_of_user;
+	bool admin_existed;
 };
 
 class ArrayOfPersonnel :public Array
@@ -54,11 +62,12 @@ public:
 	ArrayOfPersonnel(int n);//构造函数
 	ArrayOfPersonnel(ArrayOfPersonnel &);
 	~ArrayOfPersonnel();//析构函数
-	void Add(int t_number, string t_name, int t_age, int t_authortiy);//添加
-	void Show(int index);//查询
+	void Add(int t_number, string t_name, int t_age, int t_identity);//添加
+	void Show(int index, int mode);//查询
 	void Delete(int index);//删除
 	void ShowAllPersonnel();//输出所有用户的信息
 	int FindIndex(int t_number);//按照number查找用户在动态数组类中的下表
+	int checkFormat(int t_number, int t_age, int t_identity);	// name doesn't need to be checked for different people can actually have the same name.
 	friend class Personnel;
 private:
 	Personnel* personnel;//指向动态数组首地址

@@ -19,6 +19,31 @@ Array::Array(Array & t_array)
 	numArrayOfPersonnel = t_array.numArrayOfPersonnel;
 }
 
+bool Array::catchError(int error_code)
+{
+	switch (error_code)
+	{
+	case E_NUMBER:
+		cout << "The same number has already existed. Please try another one." << endl;
+		return false;
+		break;
+
+	case E_AUTHORITY:
+		cout << "Permission denied. No enough authority." << endl;
+		return false;
+		break;
+
+	case E_ACCOUNT:
+		cout << "The same account has already existed. Please try another one." << endl;
+		return false;
+		break;
+
+	case NO_ERROR:
+		return true;
+		break;
+	}
+}
+
 void Array::modifyArray(int n, int type)
 {
 	switch (type)
@@ -193,6 +218,10 @@ void ArrayOfUser::Add(int t_authority, int t_number, string t_account, string t_
 	}
 
 	user[record_index].authority = t_authority;
+	if (t_authority == IS_ADMIN)
+	{
+		admin_existed = true;
+	}		// check if an admin account is going to be created
 	user[record_index].number = t_number;
 	user[record_index].account = t_account;
 	user[record_index].password = t_password;
@@ -269,9 +298,26 @@ int ArrayOfUser::checkAuthority()
 		if (user[i].accessibility == true && user[i].is_login == true)
 		{
 			return user[i].authority;
+			break;
+		}
+	}
+}	 // return the authority of current user
+
+int ArrayOfUser::checkFormat(int t_authority, int t_number, string t_account)
+{
+	for (int i = 0; i < record_index; i++)
+	{
+		if (user[i].accessibility == true)
+		{
+			if (user[i].authority == IS_ADMIN && admin_existed)
+			{
+				return E_AUTHORITY;
+				
+			}
 		}
 	}
 }
+
 
 /////////////////////////////////////////
 // DERIVED CLASS ArrayOfPersonnel
@@ -300,8 +346,91 @@ ArrayOfPersonnel::ArrayOfPersonnel(ArrayOfPersonnel & array_of_personnel)
 		personnel[i].name = array_of_personnel.personnel[i].name;
 		personnel[i].age = array_of_personnel.personnel[i].age;
 		personnel[i].identity = array_of_personnel.personnel[i].identity;
-		personnel[i].accessiblity = array_of_personnel.personnel[i].accessiblity;
+		personnel[i].accessibility = array_of_personnel.personnel[i].accessibility;
 		record_index++;
+	}
+}
+
+ArrayOfPersonnel::~ArrayOfPersonnel()
+{
+	modifyArray(-1, PERSONNEL);
+}
+
+void ArrayOfPersonnel::Add(int t_number, string t_name, int t_age, int t_identity)
+{
+	if (record_index > 900)
+	{
+		cout << "Storage not enough, only " << 1000 - record_index << "records available." << endl;
+	}
+	personnel[record_index].number = t_number;
+	personnel[record_index].name = t_name;
+	personnel[record_index].age = t_age;
+	personnel[record_index].identity = t_identity;
+	personnel[record_index].accessibility = true;
+	personnel[record_index].index = record_index;
+	record_index++;
+}
+
+void ArrayOfPersonnel::Show(int index, int mode)
+{
+	switch (mode)
+	{
+	case SHOW_TITLES:
+		cout << setw(10) << "NUMBER" << setw(10) << "NAME" << setw(10) << "AGE" << setw(10) << "IDENTITY" << endl;		// what about developing a password protecting system, which includes find my password, etc.
+		cout << setw(10) << personnel[index].number << setw(10) << personnel[index].name << setw(10) << personnel[index].age << setw(10) << personnel[index].identity << endl;
+		break;
+
+	case NO_SHOW_TITLES:
+		cout << setw(10) << personnel[index].number << setw(10) << personnel[index].name << setw(10) << personnel[index].age << setw(10) << personnel[index].identity << endl;
+		break;
+
+	case ONLY_SHOW_TITLES:
+		cout << setw(10) << "NUMBER" << setw(10) << "NAME" << setw(10) << "AGE" << setw(10) << "IDENTITY" << endl;
+		break;
+	}
+}
+
+void ArrayOfPersonnel::Delete(int index)
+{
+	// do not subtract record_index until the dedicine array is about to be filled
+	personnel[index].accessibility = false;
+}
+
+void ArrayOfPersonnel::ShowAllPersonnel()
+{
+	Show(NULL, ONLY_SHOW_TITLES);	// is this safe?
+	for (int i = 0; i < record_index; i++)
+	{
+		if (personnel[i].accessibility == true)
+		{
+			Show(i, NO_SHOW_TITLES);
+		}
+	}
+}
+
+int ArrayOfPersonnel::FindIndex(int t_number)
+{
+	for (int i = 0; i < record_index; i++)
+	{
+		if (personnel[i].accessibility == true && personnel[i].number == t_number)
+		{
+			return personnel[i].index;
+		}
+	}
+}
+
+int ArrayOfPersonnel::checkFormat(int t_number, int t_get, int t_identity)
+{
+	for (int i = 0; i < record_index - 1; i++)		// no need to check current record because it's still vacant now
+	{
+		if (personnel[i].accessibility == true)
+		{
+			if (personnel[i].number = t_number)
+			{
+				return E_NUMBER;
+				break;
+			}
+		}
 	}
 }
 
