@@ -5,6 +5,7 @@
 #include<string>
 #include"Array.h"
 
+#define NO_USERS 0
 #define IS_ADMIN 1
 #define IS_MANAGER 2
 #define IS_WAREHOUSE 3

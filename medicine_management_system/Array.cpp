@@ -11,6 +11,7 @@ using std::setw;
 int Array::numArrayOfMedicine = 0;
 int Array::numArrayOfPersonnel = 0;
 int Array::numArrayOfUser = 0;
+int Array::current_user = NO_USERS;
 
 // BASE CLASS Array
 Array::Array(Array & t_array)
@@ -38,6 +39,11 @@ bool Array::catchError(int error_code)
 		return false;
 		break;
 
+	case W_UPDATE_MEDICINE:
+		cout << "Record exists. Information updated." << endl;
+		return true;
+		break;
+
 	case NO_ERROR:
 		return true;
 		break;
@@ -61,6 +67,12 @@ void Array::modifyArray(int n, int type)
 		break;
 	}
 }
+
+void Array::login(int type)
+{
+	current_user = type;
+}
+
 /////////////////////////////////////////////////
 // DERIVED CLASS ArrayOfMedicine
 ArrayOfMedicine::ArrayOfMedicine()
@@ -99,17 +111,29 @@ ArrayOfMedicine::~ArrayOfMedicine()
 
 void ArrayOfMedicine::Add(int t_number, string t_name, int t_amount, double t_price)
 {
-	if (record_index > 900)
+	int judge = checkFormat(t_number, t_name);
+	if (catchError(judge))
 	{
-		cout << "Storage not enough, only " << 1000 - record_index << "records available." << endl;
+		if (record_index > 900)
+		{
+			cout << "Storage not enough, only " << 1000 - record_index << "records available." << endl;
+		}
+		if (judge == W_UPDATE_MEDICINE)
+		{
+			medicine[FindIndex(t_number)].amount = t_amount;
+			medicine[FindIndex(t_amount)].price = t_price;
+		}
+		else
+		{
+			medicine[record_index].number = t_number;
+			medicine[record_index].name = t_name;
+			medicine[record_index].amount = t_amount;
+			medicine[record_index].price = t_price;
+			medicine[record_index].accessibility = true;
+			medicine[record_index].index = record_index;
+			record_index++;
+		}
 	}
-	medicine[record_index].number = t_number;
-	medicine[record_index].name = t_name;
-	medicine[record_index].amount = t_amount;
-	medicine[record_index].price = t_price;
-	medicine[record_index].accessibility = true;
-	medicine[record_index].index = record_index;
-	record_index++;
 }
 
 void ArrayOfMedicine::Delete(int index)
@@ -174,6 +198,30 @@ int ArrayOfMedicine::calNumberOfMedicine()
 
 	return num_of_medicine;
 }
+
+int ArrayOfMedicine::checkFormat(int t_number, string t_name)
+{
+	for (int i = 0; i < record_index; i++)
+	{
+		if (medicine[i].accessibility == true)
+		{
+			if (medicine[i].number == t_number)
+			{
+				if (medicine[i].name == t_name)
+				{
+					return W_UPDATE_MEDICINE;
+					break;
+				}
+				else
+				{
+					return E_NUMBER;
+					break;
+				}
+			}
+		}
+	}
+}
+
 ///////////////////////////////////////////////////
 // DERIVED CLASS ArrayOfUser
 ArrayOfUser::ArrayOfUser()
@@ -317,7 +365,7 @@ int ArrayOfUser::checkFormat(int t_authority, int t_number, string t_account)
 		}
 	}
 }
-
+// incomplete now
 
 /////////////////////////////////////////
 // DERIVED CLASS ArrayOfPersonnel
@@ -419,7 +467,7 @@ int ArrayOfPersonnel::FindIndex(int t_number)
 	}
 }
 
-int ArrayOfPersonnel::checkFormat(int t_number, int t_get, int t_identity)
+int ArrayOfPersonnel::checkFormat(int t_number)
 {
 	for (int i = 0; i < record_index - 1; i++)		// no need to check current record because it's still vacant now
 	{
