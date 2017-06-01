@@ -21,17 +21,17 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="function.h" />
+    <ClInclude Include="Medicine.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Personnel.h" />
     <ClInclude Include="Users.h" />
-    <ClInclude Include="medicine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="implementation_of_class_medicine.cpp" />
     <ClCompile Include="implementation_of_class_Users.cpp" />
+    <ClCompile Include="implementation_of_class_Personnel.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Personnel.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -1,16 +1,12 @@
 // header file of class Medicine
+#pragma once
 #ifndef MEDICINE_H
 #define MEDICINE_H
-#pragma once
 
 #include<string>
 #include"Array.h"
 
-#define SHOW_TITLES 0
-#define NO_SHOW_TITLES 1
-#define ONLY_SHOW_TITLES 3
-
-const int MAX_RECORD = 1000;
+const int MAX_RECORD_MEDICINE = 1000;
 
 using std::string;
 
