@@ -23,3 +23,13 @@ Medicine::Medicine(Medicine & t_medicine)
 	price = t_medicine.price;
 	accessibility = t_medicine.accessibility;
 }
+
+double Medicine::getPrice()
+{
+	return price;
+}
+
+string Medicine::getName()
+{
+	return name;
+}

@@ -16,6 +16,7 @@ public:
 	User(string t_account, string t_password, int userType);
 	User(User & t_user);
 	friend class ArrayOfUser;
+	friend void Function_Login_Menu();
 private:
 	string account;
 	string password;
