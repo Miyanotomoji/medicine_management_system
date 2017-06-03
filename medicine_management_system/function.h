@@ -461,14 +461,14 @@ void Add_input_medicine()                               //添加药品的功能实现
 	array_of_medicine.ShowAllMedicine();
 	cout << "--------------------------------------------------------------------------------" << endl << endl;
 
-	cout << "药品名： ";
+	cout << "药品名称： ";
 	wflush();
 	getline(cin, name);
 	cout << "药品编号： ";
 	cin >> number;
-	cout << "数量： ";
+	cout << "药品数量： ";
 	cin >> amount;
-	cout << "价格： ";
+	cout << "药品单价： ";
 	cin >> price;
 
 	array_of_medicine.Add(number, name, amount, price);
@@ -502,12 +502,7 @@ void Add_output_medicine()
 		name = array_of_medicine.medicine[index].getName();
 		price = array_of_medicine.medicine[index].getPrice();
 
-		old_authority = array_of_user.getCurrentUser();
-		array_of_user.login(IS_ADMIN);
-
 		array_of_medicine.Add(number, name, -amount, price);
-
-		array_of_user.login(old_authority);
 	}
 
 	system("pause");
